@@ -7,12 +7,17 @@ import (
 	"demoapi/internal/pkg/loggerx"
 	"demoapi/internal/router"
 	"flag"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/transport/http"
+	"github.com/nacos-group/nacos-sdk-go/clients"
+	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
+	"github.com/nacos-group/nacos-sdk-go/common/constant"
+	"github.com/nacos-group/nacos-sdk-go/vo"
 	"github.com/openzipkin/zipkin-go"
 	zipkinhttp "github.com/openzipkin/zipkin-go/reporter/http"
 	"os"
@@ -47,7 +52,58 @@ func newApp(logger log.Logger, hs *http.Server) *kratos.App {
 	)
 }
 
+func initNacos() config_client.IConfigClient {
+	// ServerConfig
+	serverConfigs := []constant.ServerConfig{
+		{
+			IpAddr:      "127.0.0.1",
+			Port:        8848,
+			ContextPath: "/nacos",
+			Scheme:      "http",
+		},
+	}
+
+	// ClientConfig
+	clientConfig := constant.ClientConfig{
+		NamespaceId:         "public", // If you need to specify the namespace, fill in the ID of the namespace here.
+		TimeoutMs:           5000,
+		NotLoadCacheAtStart: true,
+		LogDir:              "nacos/log",
+		CacheDir:            "nacos/cache",
+		LogLevel:            "debug",
+	}
+
+	// Create config client
+	configClient, err := clients.CreateConfigClient(map[string]interface{}{
+		"serverConfigs": serverConfigs,
+		"clientConfig":  clientConfig,
+	})
+
+	if err != nil {
+		log.Fatalf("create config client failed: %v", err)
+	}
+	fmt.Println("Nacos client initialized successfully!")
+	return configClient
+}
+
 func main() {
+	gin.SetMode(gin.ReleaseMode)
+
+	// 初始化Nacos客户端
+	configClient := initNacos()
+
+	// 获取配置
+	content, err := configClient.GetConfig(vo.ConfigParam{
+		DataId: "example-data-id",
+		Group:  "example-group",
+	})
+
+	if err != nil {
+		log.Fatalf("get config failed: %v", err)
+	}
+
+	fmt.Printf("config content: %s", content)
+
 	flag.Parse()
 
 	c := config.New(
@@ -75,6 +131,10 @@ func main() {
 		log.Fatal("Elasticsearch connection failed: ", err)
 	}
 
+	// 如果索引不存在则创建索引
+	if err := elasticsearch.CreateIndex("test_index"); err != nil {
+		log.Fatal("创建索引失败: ", err)
+	}
 	// 创建索引
 	if err := elasticsearch.CreateIndex("test_index"); err != nil {
 		log.Fatal("Failed to create index: ", err)
@@ -111,6 +171,8 @@ func main() {
 		"x_rpc_id", loggerx.IncrRpcId("x-rpc-id"),
 		"x_zipkin_trace", tracer,
 	)
+	// todo
+	//可以通过设置环境变量或在代码中调用 gin.SetMode(gin.ReleaseMode) 来切换到 "release" 模式以用于生产环境。
 	r := gin.Default()
 	router.RegisterRouter(r, bc.Config, nil, nil, tracer, esClient)
 

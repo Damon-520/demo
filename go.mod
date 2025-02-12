@@ -14,6 +14,7 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/mailru/easyjson v0.9.0
+	github.com/nacos-group/nacos-sdk-go v1.1.5
 	github.com/openzipkin/zipkin-go v0.4.3
 	github.com/pkg/errors v0.9.1
 	github.com/satori/go.uuid v1.2.0
@@ -31,6 +32,8 @@ require (
 require (
 	dario.cat/mergo v1.0.1 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.18 // indirect
+	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/bytedance/sonic v1.12.8 // indirect
 	github.com/bytedance/sonic/loader v0.2.3 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
@@ -40,6 +43,7 @@ require (
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
 	github.com/gin-contrib/sse v1.0.0 // indirect
+	github.com/go-errors/errors v1.0.1 // indirect
 	github.com/go-kratos/aegis v0.2.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
@@ -61,6 +65,7 @@ require (
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
+	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/jonboulle/clockwork v0.4.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -79,6 +84,9 @@ require (
 	go.opentelemetry.io/otel v1.32.0 // indirect
 	go.opentelemetry.io/otel/metric v1.32.0 // indirect
 	go.opentelemetry.io/otel/trace v1.32.0 // indirect
+	go.uber.org/atomic v1.6.0 // indirect
+	go.uber.org/multierr v1.5.0 // indirect
+	go.uber.org/zap v1.15.0 // indirect
 	golang.org/x/arch v0.14.0 // indirect
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/mod v0.23.0 // indirect
@@ -89,5 +97,7 @@ require (
 	golang.org/x/tools v0.22.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250207221924-e9438ea467c6 // indirect
 	google.golang.org/grpc v1.70.0 // indirect
+	gopkg.in/ini.v1 v1.42.0 // indirect
+	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

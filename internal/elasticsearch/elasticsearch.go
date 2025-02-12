@@ -44,8 +44,28 @@ func InitES(esURL string) (*elasticsearch.Client, error) {
 	return client, nil
 }
 
+// IndexExists 检查索引是否存在
+func IndexExists(indexName string) (bool, error) {
+	res, err := client.Indices.Exists([]string{indexName})
+	if err != nil {
+		return false, fmt.Errorf("failed to check if index exists: %w", err)
+	}
+	defer res.Body.Close()
+	return res.StatusCode == 200, nil
+}
+
 // CreateIndex 创建索引
 func CreateIndex(index string) error {
+	exists, err := IndexExists(index)
+	if err != nil {
+		return err
+	}
+
+	if exists {
+		log.Printf("索引 %s 已经存在", index)
+		return nil
+	}
+
 	res, err := client.Indices.Create(index)
 	if err != nil {
 		return fmt.Errorf("cannot create index: %v", err)
