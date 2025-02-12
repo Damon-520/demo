@@ -1,0 +1,44 @@
+server:
+  http:
+    addr: 0.0.0.0:8081
+    timeout: 3s
+
+log:
+  path: "./log/demoapi-%Y%m%d.log"
+  level: debug
+  rotationtime: 86400s
+  maxage: 259200s
+
+data:
+
+  # 活动
+  activityWrite:
+    driver: mysqlx
+    source: root:123456@tcp(127.0.0.1:3306)/test_activity?charset=utf8mb4&parseTime=true&timeout=3s&loc=Local
+    max_idle_conns: 10
+    max_open_conns: 100
+
+  activityRead:
+    driver: mysqlx
+    source: root:123456@tcp(127.0.0.1:3306)/test_activity?charset=utf8mb4&parseTime=true&timeout=3s&loc=Local
+    max_idle_conns: 10
+    max_open_conns: 100
+
+  # 用户api请求缓存使用
+  redisForApi:
+    network: tcp
+    address: 127.0.0.1:6379
+    password: "123456"
+    # 开发环境和测试环境是公用redis缓存，修改不同的db避免干扰
+    database: 0 #
+    dial_timeout: 5s
+    read_timeout: 3s # socket读取超时时间
+    write_timeout: 3s # socket写超时时间
+
+config:
+  env: local
+  # 用户验证
+  admin_auth:
+    domain: http://www.xxx.cn
+    system_id: 2
+    timeout: 2s

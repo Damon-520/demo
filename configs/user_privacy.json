@@ -1,0 +1,200 @@
+[{
+  "id": 1,
+  "label": "用户基本信息",
+  "key": "userInformation",
+  "level": 1,
+  "children": [{
+    "label": "手机号码",
+    "key": "user_phone",
+    "level": 2,
+    "collect_status": 1,
+    "status_title": "已收集",
+    "purpose": {
+      "label": "使用目的",
+      "value": "用于日常使用时的账号注册/登录"
+    },
+    "scenarios": {
+      "label": "收集/使用场景",
+      "value": [{
+        "label": "场景描述",
+        "key": "describe",
+        "value": "账号注册/登录"
+      }, {
+        "label": "收集内容",
+        "key": "collectContent",
+        "value": ""
+      }]
+    }
+  }, {
+    "label": "性别",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "年龄",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "所在城市",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "身份证号",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "联系地址",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }]
+}, {
+  "id": 2,
+  "level": 1,
+  "label": "用户财产信息",
+  "key": "propertyInformation",
+  "children": [{
+    "label": "资金账号",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "购买消费记录",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "订单数据",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "虚拟资产信息",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }]
+}, {
+  "id": 3,
+  "level": 1,
+  "label": "用户使用过程信息",
+  "key": "useProcessInformation",
+  "children": [{
+    "label": "用户观看时长和观看记录",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "搜索记录",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }, {
+    "label": "拍照和批改记录",
+    "level": 2,
+    "collect_status": 1,
+    "status_title": "已收集",
+    "purpose": {
+      "label": "使用目的",
+      "value": "记录用户错误的题目信息，分析用户知识点薄弱项"
+    },
+    "scenarios": {
+      "label": "收集/使用场景",
+      "value": [{
+        "label": "场景描述",
+        "key": "describe",
+        "value": "「拍照批改」和「扫码看视频」时"
+      }, {
+        "label": "收集内容",
+        "key": "collectContent",
+        "value": "拍照和批改的记录"
+      }]
+    }
+  }, {
+    "label": "分享行为记录",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }]
+}, {
+  "id": 4,
+  "level": 1,
+  "label": "联系人信息",
+  "key": "contactInformation",
+  "children": [{
+    "label": "通讯录",
+    "level": 2,
+    "collect_status": 0,
+    "status_title": "未收集"
+  }]
+}, {
+  "id": 5,
+  "level": 1,
+  "label": "设备属性信息",
+  "key": "deviceProperties",
+  "children": [{
+    "label": "设备属性信息",
+    "level": 2,
+    "collect_status": 1,
+    "status_title": "已收集",
+    "purpose": {
+      "label": "使用目的",
+      "value": "履行维护网络安全义务，提高使用服务的安全性"
+    },
+    "scenarios": {
+      "label": "收集/使用场景",
+      "value": [{
+        "label": "场景描述",
+        "key": "describe",
+        "value": "登录、APP报错或用户反馈问题时"
+      }, {
+        "label": "设备型号",
+        "key": "deviceType",
+        "value": ""
+      }, {
+        "label": "设备名称",
+        "key": "deviceName",
+        "value": ""
+      }, {
+        "label": "操作系统版本",
+        "key": "OSVersion",
+        "value": ""
+      }, {
+        "label": "设备应用安装列表",
+        "key": "deviceAppInstallationList",
+        "value": ""
+      }, {
+        "label": "唯一设备识别码",
+        "key": "UDID",
+        "value": ""
+      }, {
+        "label": "登录ip地址",
+        "key": "IPAddress",
+        "value": ""
+      }, {
+        "label": "网络接入方式",
+        "key": "networkAccessMode",
+        "value": ""
+      }, {
+        "label": "网络质量数据",
+        "key": "networkQuality",
+        "value": ""
+      }, {
+        "label": "运营商名称或简称",
+        "key": "operatorName",
+        "value": ""
+      }, {
+        "label": "当前应用程序的版本信息",
+        "key": "appVersion",
+        "value": ""
+      }, {
+        "label": "屏幕尺寸",
+        "key": "screenSize",
+        "value": ""
+      }]
+    }
+  }]
+}]
