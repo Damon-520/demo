@@ -98,7 +98,12 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect; YAML格式解析库（开源）
 )
 
+require github.com/golang/protobuf v1.5.4
+
 require (
+	github.com/google/subcommands v1.2.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.1-0.20220228012449-10b1cf09e00b // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
+	golang.org/x/tools v0.22.0 // indirect
 )

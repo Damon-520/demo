@@ -4,7 +4,7 @@ package kratos.api;
 
 option go_package = "demoapi/internal/conf;conf";
 
-import "google/protobuf/duration.proto";
+import "pkg/protoeditor/include/google/protobuf/duration.proto";
 
 message Bootstrap {
   Server server = 1;
