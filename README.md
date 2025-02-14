@@ -7,31 +7,6 @@
 > 列出运行该项目所必须的条件和相关依赖  
 * go 版本 1.22+
 
-[//]: # (~~* 类库依赖)
-
-[//]: # (```shell)
-
-[//]: # (	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest)
-
-[//]: # (	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest)
-
-[//]: # (	go install github.com/go-kratos/kratos/cmd/kratos/v2@latest)
-
-[//]: # (	go install github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2@latest)
-
-[//]: # (	go install github.com/google/wire/cmd/wire@latest)
-
-[//]: # (	go install github.com/golang/mock/mockgen@latest)
-
-[//]: # (	go install github.com/envoyproxy/protoc-gen-validate@latest)
-
-[//]: # (	go install golang.org/x/tools/cmd/stringer@latest)
-
-[//]: # (```)
-
-[//]: # (*~~ )
-
-
 ## 运行说明
 > 依赖make运行如下命令
 * generate 命令
